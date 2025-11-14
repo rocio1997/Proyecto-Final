@@ -1,0 +1,41 @@
+#################GRUPO CLUSTERING###################
+
+Nombres:
+- Lucy Rocio Alcon 
+- Denis Romel Cruz 
+- Elizabeth Alcon 
+
+######################################################
+
+1. Carga de datos
+Se utilizó la base del Latinobarómetro 2024 (Bolivia). La carga de datos se realiza mediante librerías como pandas en Python, que permiten leer el archivo Excel.csv y convertirlo en un DataFrame para su manipulación 
+
+
+2. Procesamiento de datos 
+
+Se detectan variables relevantes mediante una búsqueda heurística, identificando columnas asociadas a conceptos clave como “voto”, “protesta”, “reunión política”, “confianza en las instituciones”, “interés por la política”, “educación”, “género” e “ingresos”.
+
+3. Exploratory Data Analysis (EDA)
+
+Se desarrolló un análisis exploratorio de datos orientado a comprender la estructura de la base y las relaciones iniciales entre variables.Se elaboraron gráficos de barras y diagramas de frecuencia que mostraron, por ejemplo, que una parte considerable de los jóvenes contaba con educación secundaria o superior, y que existía una ligera predominancia del grupo masculino.
+
+4. Feature Extraction (variable construir una variable dependiente y sacar variables independientes, buscar algún sustento teorico)
+
+Se definio la variable dependiente que representa el nivel de participación política de los jóvenes, combinando información sobre acciones como votar, asistir a reuniones políticas, firmar peticiones o participar en manifestaciones.Por otro lado, se seleccionaron las variables independientes como: los factores sociodemográficos (edad, sexo, educación, ingresos), confianza institucional, satisfacción democrática e interés político. 
+
+
+5. Pycaret clasificacion (es utilizado para determinar los perfiles de involucramiento, con las variables independientes)
+
+Cada modelo fue evaluado utilizando métricas como Accuracy, AUC, Recall, Precision, F1, Kappa, MCC y Tiempo de ejecución (TT).
+El modelo Decision Tree Classifier muestra los mejores resultados generales entre todos los modelos evaluados, destacando especialmente en:
+•	Accuracy: 0.9288
+•	Recall: 0.9731
+•	Precision: 0.9535
+•	F1 Score: 0.9628
+
+6. Model training and evaluation
+La clusterización realizada con PyCaret identifica patrones relevantes en las actitudes políticas y sociales de los jóvenes, demostrando que no forman un grupo uniforme. A través del cálculo del silhouette score y el análisis del codo, el modelo determina que cinco clusters representan el punto óptimo de segmentación, ya que permiten capturar diferencias internas sin fragmentar artificialmente la muestra. Esta estructura revela combinaciones coherentes entre confianza institucional, percepciones de corrupción, satisfacción personal y nivel educativo.
+
+Aunque los valores del silhouette son moderados —algo esperado en datos sociales donde las fronteras entre grupos nunca son completamente nítidas— la evidencia gráfica confirma que existe organización interna y no simple aleatoriedad en las respuestas. El gráfico del codo respalda esta conclusión al mostrar que la mejora en la calidad del agrupamiento se estabiliza alrededor de K = 5; mientras que el análisis visual mediante PCA exhibe regiones donde cada cluster predomina, aun cuando exista cierta superposición propia de variables actitudinales.
+
+En conjunto, el resultado más importante es la identificación de cinco perfiles juveniles con patrones diferenciados de evaluación política y social. Esta segmentación abre la posibilidad de estudiar cómo cada grupo se relaciona con formas de participación o involucramiento político, y permite comprender mejor la diversidad interna de la población joven. Los clusters, por tanto, no solo sintetizan información compleja, sino que ofrecen una base sólida para análisis posteriores y aplicaciones prácticas basadas en estos perfiles.
